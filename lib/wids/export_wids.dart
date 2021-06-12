@@ -1,0 +1,1 @@
+export 'nameWid.dart';
