@@ -36,18 +36,39 @@ class _ScreenAState extends State<ScreenA> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.only(top: 50),
-        height: size.height,
-        child: CustomScrollView(
-          controller: controller,
-          shrinkWrap: false,
-          slivers: [
-            SliverToBoxAdapter(
-              child:NameWid(),
+      body: Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 50),
+            height: size.height,
+            width: size.width,
+            child: CustomScrollView(
+              controller: controller,
+              shrinkWrap: false,
+              slivers: [
+                SliverToBoxAdapter(
+                  child: NameWid(),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              width: size.width,
+              height: 75,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Enter a search term',
+                  ),
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

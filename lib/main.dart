@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'ToDo Screen',
       theme: ThemeData(
+        brightness: Brightness.light,
         primarySwatch: Colors.teal,
 
       ),
